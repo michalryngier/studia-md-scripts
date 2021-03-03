@@ -158,14 +158,16 @@ class ExtendedEuclidean
                 }
             }
             $this->yValue = $this->results[$i]["integerDiv"];
-            $this->xValue = array_key_exists($i + 1, $this->results) ? $this->results[$i + 1] : 1;
+            $this->xValue = array_key_exists($i + 1, $this->results)
+                ? $this->results[$i + 1]["integerDiv"]
+                : 1;
         }
         return $responseString;
     }
 }
 
-$a = 21;
-$b = 421;
+$a = 164;
+$b = 72;
 
 $ee = new ExtendedEuclidean($a, $b);
 $ee->main();
