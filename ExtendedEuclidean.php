@@ -19,9 +19,11 @@ class ExtendedEuclidean
 
     public function main() : void
     {
+        $reversed = false;
         if ($this->b > $this->a) {
             $a = $this->b;
             $b = $this->a;
+            $reversed = true;
         } else {
             $a = $this->a;
             $b = $this->b;
@@ -56,16 +58,29 @@ class ExtendedEuclidean
         PrintHelper::printLine();
         PrintHelper::printLine($this->getResult());
         PrintHelper::printLine();
-        PrintHelper::printLine(
-            "NWD($this->a, $this->b) = $this->NWD = $this->a * "
-            . (
-                $this->xValue >= 0 ? $this->xValue : "($this->xValue)"
-            )
-            . " + $this->b * "
-            . (
+        if ($reversed) {
+            PrintHelper::printLine(
+                "NWD($this->a, $this->b) = $this->NWD = $this->a * "
+                . (
                 $this->yValue >= 0 ? $this->yValue : "($this->yValue)"
-            )
-        );
+                )
+                . " + $this->b * "
+                . (
+                $this->xValue >= 0 ? $this->xValue : "($this->xValue)"
+                )
+            );
+        } else {
+            PrintHelper::printLine(
+                "NWD($this->a, $this->b) = $this->NWD = $this->a * "
+                . (
+                $this->xValue >= 0 ? $this->xValue : "($this->xValue)"
+                )
+                . " + $this->b * "
+                . (
+                $this->yValue >= 0 ? $this->yValue : "($this->yValue)"
+                )
+            );
+        }
         PrintHelper::printLine();
         PrintHelper::printLine("x = $this->xValue    y = $this->yValue");
     }
@@ -140,8 +155,8 @@ class ExtendedEuclidean
     }
 }
 
-$a = 123123;
-$b = 73;
+$a = 1024;
+$b = 10024;
 
 $ee = new ExtendedEuclidean($a, $b);
 $ee->main();
