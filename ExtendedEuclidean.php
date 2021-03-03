@@ -155,17 +155,17 @@ class ExtendedEuclidean
                         . abs($this->results[$i]["integerDiv"])
                         . " * "
                         . $result["multiplicative"];
-                    $this->yValue = $this->results[$i]["integerDiv"];
-                    $this->xValue = $previousResult["integerDiv"];
                 }
             }
+            $this->yValue = $this->results[$i]["integerDiv"];
+            $this->xValue = array_key_exists($i + 1, $this->results) ? $this->results[$i + 1] : 1;
         }
         return $responseString;
     }
 }
 
-$a = 12;
-$b = 24;
+$a = 21;
+$b = 421;
 
 $ee = new ExtendedEuclidean($a, $b);
 $ee->main();
