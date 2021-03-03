@@ -59,7 +59,7 @@ class ExtendedEuclidean
         PrintHelper::printLine($this->getResult());
         PrintHelper::printLine();
         if ($reversed) {
-            PrintHelper::printLine(
+            PrintHelper::printSingle(
                 "NWD($this->a, $this->b) = $this->NWD = $this->a * "
                 . (
                 $this->yValue >= 0 ? $this->yValue : "($this->yValue)"
@@ -69,8 +69,9 @@ class ExtendedEuclidean
                 $this->xValue >= 0 ? $this->xValue : "($this->xValue)"
                 )
             );
+            $checkValue = $this->a * $this->yValue + $this->b * $this->xValue;
         } else {
-            PrintHelper::printLine(
+            PrintHelper::printSingle(
                 "NWD($this->a, $this->b) = $this->NWD = $this->a * "
                 . (
                 $this->xValue >= 0 ? $this->xValue : "($this->xValue)"
@@ -80,7 +81,9 @@ class ExtendedEuclidean
                 $this->yValue >= 0 ? $this->yValue : "($this->yValue)"
                 )
             );
+            $checkValue = $this->a * $this->xValue + $this->b * $this->yValue;
         }
+        PrintHelper::printLine("   " . (($this->NWD === $checkValue) ? "PRAWDA" : "FAŁSZ"));
         PrintHelper::printLine();
         PrintHelper::printLine("x = $this->xValue    y = $this->yValue");
     }
@@ -155,8 +158,8 @@ class ExtendedEuclidean
     }
 }
 
-$a = 1024;
-$b = 10024;
+$a = 10024;
+$b = 124;
 
 $ee = new ExtendedEuclidean($a, $b);
 $ee->main();

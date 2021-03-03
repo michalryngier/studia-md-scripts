@@ -9,7 +9,7 @@ class PrintHelper
         echo $s . PHP_EOL;
     }
 
-    protected static function printSingle($s = "") : void
+    public static function printSingle($s = "") : void
     {
         echo $s;
     }
