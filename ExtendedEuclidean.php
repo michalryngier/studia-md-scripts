@@ -56,12 +56,13 @@ class ExtendedEuclidean
         }
         PrintHelper::printLine("NWD($this->a, $this->b) = $this->NWD");
         PrintHelper::printLine();
-        PrintHelper::printLine($this->getResult());
-        PrintHelper::printLine();
         if ($this->a % $this->b === 0 || $this->b % $this->a === 0) {
             $this->NWD = $reversed ? $this->a : $this->b;
             $this->xValue = 0;
             $this->yValue = 1;
+        } else {
+            PrintHelper::printLine($this->getResult());
+            PrintHelper::printLine();
         }
         if ($reversed) {
             PrintHelper::printSingle(
