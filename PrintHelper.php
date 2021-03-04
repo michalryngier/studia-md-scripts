@@ -2,7 +2,7 @@
 
 class PrintHelper
 {
-    const LINE_WIDTH = 60;
+    const LINE_WIDTH = 100;
 
     public static function printLine(string $s = "") : void
     {

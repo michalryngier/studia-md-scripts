@@ -1,4 +1,4 @@
-<?php
+cls<?php
 
 include "PrintHelper.php";
 
@@ -17,7 +17,7 @@ class ExtendedEuclidean
         $this->b = $b;
     }
 
-    public function main() : void
+    public function main(): void
     {
         $reversed = false;
         if ($this->b > $this->a) {
@@ -51,11 +51,14 @@ class ExtendedEuclidean
             $a = $b;
             $b = $r;
         } while ($r > 0);
+
         if ($this->a % $a === 0 && $this->b % $a === 0) {
             $this->NWD = $a;
         }
+
         PrintHelper::printLine("NWD($this->a, $this->b) = $this->NWD");
         PrintHelper::printLine();
+
         if ($this->a % $this->b === 0 || $this->b % $this->a === 0) {
             $this->NWD = $reversed ? $this->a : $this->b;
             $this->xValue = 0;
@@ -89,12 +92,13 @@ class ExtendedEuclidean
             );
             $checkValue = $this->a * $this->xValue + $this->b * $this->yValue;
         }
+
         PrintHelper::printLine("   " . (($this->NWD === $checkValue) ? "PRAWDA" : "FAŁSZ"));
         PrintHelper::printLine();
         PrintHelper::printLine("x = $this->xValue    y = $this->yValue");
     }
 
-    protected function getResult() : string
+    protected function getResult(): string
     {
         $resultsLastIndex = count($this->results) - 1;
         $responseString = "$this->NWD = ";
@@ -148,8 +152,11 @@ class ExtendedEuclidean
                         * $previousResult["integerDiv"]
                         + $this->results[$i + 2]["integerDiv"];
                     $responseString .= "\n  = "
-                        . $previousResult["integerDiv"]
-                        . " * "
+                        . (
+                        $previousResult["integerDiv"] >= 0
+                            ? $previousResult["integerDiv"] . " * "
+                            : "(" . $previousResult["integerDiv"] . ") * "
+                        )
                         . $result["a"]
                         . ($this->results[$i]["integerDiv"] >= 0 ? " + " : " - ")
                         . abs($this->results[$i]["integerDiv"])
@@ -166,8 +173,8 @@ class ExtendedEuclidean
     }
 }
 
-$a = 164;
-$b = 72;
+$a = 213213231;
+$b = 12321321;
 
 $ee = new ExtendedEuclidean($a, $b);
 $ee->main();
