@@ -70,8 +70,7 @@ class StringNotation
 
     public static function getFactorizedNumbers(int $number1, int $number2 = null) : array
     {
-        $sn = new StringNotation($number1, $number2);
-        return $sn->factorize();
+        return self::factorize($number1, $number2);
     }
 
     public static function factorize(int $number1, ?int $number2 = null) : array
