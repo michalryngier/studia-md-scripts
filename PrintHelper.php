@@ -2,7 +2,7 @@
 
 class PrintHelper
 {
-    const LINE_WIDTH = 100;
+    const LINE_WIDTH = 60;
 
     public static function printLine(string $s = "") : void
     {
@@ -35,5 +35,23 @@ class PrintHelper
         }
         $responseString .= $s2;
         return $responseString;
+    }
+
+    public static function printArray(array $arr)
+    {
+        $index = 0;
+        $keys = array_keys($arr);
+        sort($keys);
+        $lastIndex = $keys[count($keys) - 1];
+        self::printSingle("[ ");
+        while ($index <= $lastIndex) {
+            if (isset($arr[$index])) {
+                self::printSingle($arr[$index] . ", ");
+            } else {
+                self::printSingle("0, ");
+            }
+            $index++;
+        }
+        self::printSingle("0 ]");
     }
 }
