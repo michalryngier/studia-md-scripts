@@ -43,7 +43,7 @@ $mod = 8;
 $ma = ModuloArithmetics::findReverse($number, $mod);
 
 if ($ma) {
-    PrintHelper::printLine("$ma jest liczbą odwrotna do $number modulo $mod");
+    PrintHelper::printLine("$ma jest liczbą odwrotną do $number modulo $mod");
 } else {
     PrintHelper::printLine("Nie istnieje liczba odwrotna do $number modulo $mod");
 }
