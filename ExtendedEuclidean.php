@@ -173,7 +173,7 @@ class ExtendedEuclidean
     }
 }
 
-$a = 24;
+$a = 2047;
 $b = 21;
 
 $ee = new ExtendedEuclidean($a, $b);
