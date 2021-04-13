@@ -128,6 +128,6 @@ class StringNotation
 }
 
 $number2 = null;
-$number1 = 14348906;
+$number1 = 1263;
 $sn = new StringNotation($number1, $number2);
 $sn->main();

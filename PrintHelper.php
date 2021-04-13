@@ -54,4 +54,13 @@ class PrintHelper
         }
         self::printSingle("0 ]");
     }
+
+    public static function quickArray(array $arr)
+    {
+        self::printSingle("[ ");
+        foreach ($arr as $el) {
+            self::printSingle("$el, ");
+        }
+        self::printSingle(" ]");
+    }
 }

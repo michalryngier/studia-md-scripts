@@ -99,15 +99,24 @@ class ModuloArithmetics
         });
         PrintHelper::printLine(" = $x = " . $x % $M . " (mod $M)");
     }
+
+    public static function euler(int $n) : void
+    {
+        $set = 0;
+        for ($i = 1; $i < $n; $i++)
+            if (self::relativelyFirst([$i, $n]))
+                $set++;
+        PrintHelper::printLine("\np($n) = $set");
+    }
 }
 
-$a = 25;
-$b = 362;
-$mod = 462;
-
+$a = 5;
+$b = 2;
+$mod = 39;
+//var_dump(ModuloArithmetics::findReverse(0, 7));
+//ModuloArithmetics::euler(360);
 ModuloArithmetics::resolveLinear($a, $b, $mod);
-//var_dump(ModuloArithmetics::relativelyFirst([4, 6, 9]));
-
+//var_dump(ModuloArithmetics::relativelyFirst([13, 65]));
 //ModuloArithmetics::resolveSystem([
 //    [
 //        "a" => 2,
@@ -122,8 +131,3 @@ ModuloArithmetics::resolveLinear($a, $b, $mod);
 //        "m" => 7
 //    ]
 //]);
-//if ($ma) {
-//    PrintHelper::printLine("$ma jest liczbą odwrotną do $number modulo $mod");
-//} else {
-//    PrintHelper::printLine("Nie istnieje liczba odwrotna do $number modulo $mod");
-//}
