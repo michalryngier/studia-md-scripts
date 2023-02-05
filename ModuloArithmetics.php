@@ -100,34 +100,47 @@ class ModuloArithmetics
         PrintHelper::printLine(" = $x = " . $x % $M . " (mod $M)");
     }
 
-    public static function euler(int $n) : void
+    public static function euler(int $n) : int
     {
         $set = 0;
         for ($i = 1; $i < $n; $i++)
             if (self::relativelyFirst([$i, $n]))
                 $set++;
         PrintHelper::printLine("\np($n) = $set");
+
+        return $set;
+    }
+
+    public static function getAllEulerNumbers(int $n)
+    {
+        $numbs = [];
+        for ($i = $n; $i < 10000; $i++) {
+            if (self::euler($i) === $n) $numbs[] = $i;
+        }
+        return $numbs;
     }
 }
 
-$a = 5;
-$b = 2;
-$mod = 39;
+$a = 7;
+$b = 5;
+$mod = 19;
+
+//var_dump(ModuloArithmetics::getAllEulerNumbers(10));
 //var_dump(ModuloArithmetics::findReverse(0, 7));
-//ModuloArithmetics::euler(360);
+//ModuloArithmetics::euler(65);
 ModuloArithmetics::resolveLinear($a, $b, $mod);
-//var_dump(ModuloArithmetics::relativelyFirst([13, 65]));
+//var_dump(ModuloArithmetics::relativelyFirst([16, 125]));
 //ModuloArithmetics::resolveSystem([
 //    [
-//        "a" => 2,
-//        "m" => 3
-//    ],
-//    [
-//        "a" => 3,
+//        "a" => 9,
 //        "m" => 4
 //    ],
 //    [
-//        "a" => 5,
-//        "m" => 7
-//    ]
+//        "a" => 0,
+//        "m" => 9
+//    ],
+//    [
+//        "a" => 72,
+//        "m" => 25
+//    ],
 //]);

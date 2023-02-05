@@ -26,3 +26,5 @@ class PrimeHelper
         return $number;
     }
 }
+
+var_dump(PrimeHelper::findNextPrime(101));

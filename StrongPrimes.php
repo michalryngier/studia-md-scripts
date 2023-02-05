@@ -47,4 +47,5 @@ class StrongPrimes
     }
 }
 
-StrongPrimes::maxPowerThatDividesTheNumber(20, 500);
+StrongPrimes::maxPowerThatDividesTheNumber(2, 256);
+//StrongPrimes::factorizeStrong(100, 5);
